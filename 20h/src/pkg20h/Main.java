@@ -6,12 +6,9 @@
 package pkg20h;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -21,18 +18,13 @@ import javafx.stage.Stage;
 public class Main extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        Label label = new Label("Hello World!!!!");
+        Scene scene = new Scene(root);
         
-        StackPane root = new StackPane();
-        root.getChildren().add(label);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("20h");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
