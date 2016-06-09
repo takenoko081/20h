@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg20h;
+package pkg20h.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,20 +25,16 @@ import javafx.stage.Stage;
  * @author take5
  */
 public class TopPageController implements Initializable {
-
-    @FXML
-    private Button inputPage;
-    @FXML
-    private Button displayPage;
     
     @FXML
     private void handleInputPageButtonAction(ActionEvent event) throws IOException {
-//        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("HelloWorldFXMLDocument.fxml"));
-//        Parent parent = fXMLLoader.load();
-//        Scene s = new Scene(parent);
-//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        stage.setScene(s);
-//        stage.show();
+          System.out.println("aaa");
+        FXMLLoader fXMLLoader = new FXMLLoader(Paths.get("src/pkg20h/view/InputPage.fxml").toUri().toURL());
+        Parent parent = fXMLLoader.load();
+        Scene s = new Scene(parent);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(s);
+        stage.show();
     }
 
     @FXML

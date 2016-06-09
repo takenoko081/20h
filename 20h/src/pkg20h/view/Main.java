@@ -3,8 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg20h;
+package pkg20h.view;
 
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,8 +25,8 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TopPage.fxml"));
-        
+        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("TopPage.fxml"));        
+        Parent root = fXMLLoader.load();
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
