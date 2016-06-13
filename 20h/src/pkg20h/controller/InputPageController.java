@@ -5,6 +5,7 @@
  */
 package pkg20h.controller;
 
+import bean.TimeAndCategoryBean;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -39,8 +40,8 @@ public class InputPageController implements Initializable{
         int hour = Integer.parseInt(this.hour.getText());
         int minute = Integer.parseInt(this.minute.getText());
         LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.of(hour, minute, 0));
-        String line = localDateTime.toString() + System.getProperty("line.separator");
-        Files.write(Paths.get(PATH), line.getBytes(), StandardOpenOption.APPEND);        
+        TimeAndCategoryBean bean = new TimeAndCategoryBean(localDateTime, "test");
+        Files.write(Paths.get(PATH), bean.toCSV().getBytes(), StandardOpenOption.APPEND);        
     }
     
 }
