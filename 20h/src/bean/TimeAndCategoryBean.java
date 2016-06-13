@@ -27,7 +27,10 @@ public class TimeAndCategoryBean {
     public String getCategory() {
         return category;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return localDateTime.toString() +":"+ category;
+    }
     
 }
