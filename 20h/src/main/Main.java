@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg20h.view;
+package main;
 
 import java.io.InputStream;
 import java.net.URI;
@@ -25,7 +25,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("TopPage.fxml"));        
+        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource("view/TopPage.fxml"));  
         Parent root = fXMLLoader.load();
         Scene scene = new Scene(root);
         
