@@ -27,14 +27,7 @@ public class TimeAndCategoryBean {
     public String getCategory() {
         return category;
     }
-
-    public String toCSV(){
-        return localDateTime.toString() +","+ category + System.getProperty("line.separator");
-    }
     
-    @Override
-    public String toString() {
-        return localDateTime.toString() +":" + category;
-    }
-
+    
+    
 }
