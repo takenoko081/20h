@@ -5,7 +5,10 @@
  */
 package pkg20h.controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,8 +30,8 @@ public class DataViewPageController implements Initializable {
     }
     
     @FXML
-    private void handleDisplayButtonAction(ActionEvent event){
-        System.out.println("aaaaaaaaaaaa");
+    private void handleDisplayButtonAction(ActionEvent event) throws IOException{
+        Files.lines(Paths.get("test.txt")).filter(str -> !str.equals("")).forEach(System.out::println);
     }
     
 }
