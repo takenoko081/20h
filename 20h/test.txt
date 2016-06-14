@@ -3,3 +3,5 @@
 2016-06-13T01:30
 2016-06-13T02:01
 2016-06-14T01:30,test
+2016-06-14T01:10,TextField[id=category, styleClass=text-input text-field]
+2016-06-14T01:20,イラスト

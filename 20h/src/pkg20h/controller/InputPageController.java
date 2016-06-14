@@ -41,9 +41,9 @@ public class InputPageController implements Initializable{
         int hour = Integer.parseInt(this.hour.getText());
         int minute = Integer.parseInt(this.minute.getText());
         LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.of(hour, minute, 0));
-        String category = this.category.toString();
+        String category = this.category.getText();
         TimeAndCategoryBean bean = new TimeAndCategoryBean(localDateTime, category);
-        Files.write(Paths.get(PATH), bean.toCSV().getBytes(), StandardOpenOption.APPEND);        
+        Files.write(Paths.get(PATH), bean.toCSV().getBytes(), StandardOpenOption.APPEND);
     }
     
 }

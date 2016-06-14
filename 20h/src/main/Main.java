@@ -25,7 +25,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource("view/TopPage.fxml"));  
+        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getClassLoader().getResource("pkg20h/view/TopPage.fxml"));  
         Parent root = fXMLLoader.load();
         Scene scene = new Scene(root);
         
