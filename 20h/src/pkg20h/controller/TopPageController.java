@@ -28,7 +28,6 @@ public class TopPageController implements Initializable {
     
     @FXML
     private void handleInputPageButtonAction(ActionEvent event) throws IOException {
-          System.out.println("aaa");
         FXMLLoader fXMLLoader = new FXMLLoader(Paths.get("src/pkg20h/view/InputPage.fxml").toUri().toURL());
         Parent parent = fXMLLoader.load();
         Scene s = new Scene(parent);
@@ -39,7 +38,12 @@ public class TopPageController implements Initializable {
 
     @FXML
     private void handleDisplayPageButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Hello World!!!!!!");
+        FXMLLoader fXMLLoader = new FXMLLoader(Paths.get("src/pkg20h/view/DataViewPage.fxml").toUri().toURL());
+        Parent parent = fXMLLoader.load();
+        Scene s = new Scene(parent);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(s);
+        stage.show();
     }
     
     /**
