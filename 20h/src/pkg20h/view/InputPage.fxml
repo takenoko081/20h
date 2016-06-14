@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane id="InputPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg20h.controller.InputPageController">
    <bottom>
-      <Button id="inputButton" mnemonicParsing="false" text="入力" BorderPane.alignment="CENTER" onAction="#handleWriteFileButtonAction"/>
+      <Button id="inputButton" mnemonicParsing="false" onAction="#handleWriteFileButtonAction" text="入力" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
       <Label text="時間" BorderPane.alignment="CENTER" />
@@ -20,6 +19,8 @@
             <TextField fx:id="hour" />
             <Label contentDisplay="CENTER" text="分" textOverrun="WORD_ELLIPSIS" />
             <TextField fx:id="minute" />
+            <Label text="項目" />
+            <TextField fx:id="category" />
          </children>
       </VBox>
    </center>

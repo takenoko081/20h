@@ -30,6 +30,7 @@ public class InputPageController implements Initializable{
     
     @FXML private TextField hour;
     @FXML private TextField minute;
+    @FXML private TextField category;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,7 +41,8 @@ public class InputPageController implements Initializable{
         int hour = Integer.parseInt(this.hour.getText());
         int minute = Integer.parseInt(this.minute.getText());
         LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.of(hour, minute, 0));
-        TimeAndCategoryBean bean = new TimeAndCategoryBean(localDateTime, "test");
+        String category = this.category.toString();
+        TimeAndCategoryBean bean = new TimeAndCategoryBean(localDateTime, category);
         Files.write(Paths.get(PATH), bean.toCSV().getBytes(), StandardOpenOption.APPEND);        
     }
     
