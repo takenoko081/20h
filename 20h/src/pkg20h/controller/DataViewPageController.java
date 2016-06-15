@@ -5,11 +5,16 @@
  */
 package pkg20h.controller;
 
+import bean.TimeAndCategoryBean;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,15 +41,17 @@ public class DataViewPageController implements Initializable {
     
     @FXML
     private void handleDisplayButtonAction(ActionEvent event) throws IOException{
-        Files.lines(Paths.get("test.txt")).filter(str -> !str.equals("")).forEach(System.out::println);
         
         XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
         series.setName("H");
         
-        series.getData().add(new XYChart.Data<String, Integer>("1日", 100));
+        Stream<String> stream = Files.lines(Paths.get("test.txt")).filter(str -> !(str.length() == 1));
+        List<TimeAndCategoryBean> lists = stream.map(TimeAndCategoryBean::parse).collect(Collectors.toList());
+        lists.forEach(list -> series.getData().add(new XYChart.Data<String, Integer>(String.valueOf(list.getLocalDateTime().getDayOfMonth()), list.getLocalDateTime().getMinute())));
         
         studyBarChart.getData().add(series);
         
     }
+    
     
 }
