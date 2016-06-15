@@ -37,4 +37,9 @@ public class TimeAndCategoryBean {
         return localDateTime.toString() +":"+ category;
     }
     
+    public static TimeAndCategoryBean parse(String str){
+        String[] temp = str.split(",");
+        return new TimeAndCategoryBean(LocalDateTime.parse(temp[0]), temp[1]);
+    }
+    
 }
