@@ -23,6 +23,7 @@ import java.util.stream.Stream;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 /**
@@ -42,6 +43,12 @@ public class InputPageController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
     }
     
+    /**
+     * 勉強時間登録アクション
+     * @param event
+     * @throws IOException 
+     */
+    
     @FXML
     private void handleWriteFileButtonAction(ActionEvent event) throws IOException {
         int hour = Integer.parseInt(this.hour.getText());
@@ -52,12 +59,25 @@ public class InputPageController implements Initializable{
         Files.write(Paths.get(PATH), bean.toCSV().getBytes(), StandardOpenOption.APPEND);
     }
     
+    /**
+     * カテゴリ登録アクション
+     * @param event
+     * @throws IOException 
+     */
+    
     @FXML
     private void handleCategoryEntryButton(ActionEvent event) throws IOException {
 
         Stream<String> stream = Files.lines(Paths.get("category.txt"));
         boolean strExists = stream.anyMatch(str -> str.contains(categoryEntryField.getText()));
         if(strExists){
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Show");
+            alert.getDialogPane().setHeaderText("カテゴリ重複");
+            alert.getDialogPane().setContentText("すでに登録されているカテゴリです。");
+            alert.show();
+            
             return;
         }
         
