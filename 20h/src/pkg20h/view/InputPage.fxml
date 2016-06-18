@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
@@ -21,6 +22,7 @@
             <TextField fx:id="minute" />
             <Label text="項目" />
             <TextField fx:id="category" />
+            <ChoiceBox fx:id="categoryChoiceBox" prefWidth="150.0" />
          </children>
       </VBox>
    </center>
@@ -28,7 +30,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="categoryEntryField" />
-            <Button onAction="#handleCategoryEntryButton" mnemonicParsing="false" text="登録" />
+            <Button mnemonicParsing="false" onAction="#handleCategoryEntryButton" text="登録" />
          </children>
       </VBox>
    </right>
