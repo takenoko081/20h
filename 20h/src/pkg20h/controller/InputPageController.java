@@ -44,7 +44,6 @@ public class InputPageController implements Initializable{
     
     @FXML private TextField hour;
     @FXML private TextField minute;
-    @FXML private TextField category;
     @FXML private TextField categoryEntryField;
     @FXML private ChoiceBox<String> categoryChoiceBox;
     private List<String> listsCategory;
@@ -71,9 +70,15 @@ public class InputPageController implements Initializable{
         int hour = Integer.parseInt(this.hour.getText());
         int minute = Integer.parseInt(this.minute.getText());
         LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.of(hour, minute, 0));
-        String category = this.category.getText();
+        String category = categoryChoiceBox.getValue();
         TimeAndCategoryBean bean = new TimeAndCategoryBean(localDateTime, category);
+        
+        boolean fileExists = Files.exists(Paths.get(PATH), LinkOption.NOFOLLOW_LINKS);
+        if(!fileExists) {
+            Files.createFile(Paths.get(PATH));
+        }
         Files.write(Paths.get(PATH), bean.toCSV().getBytes(), StandardOpenOption.APPEND);
+
     }
     
     /**

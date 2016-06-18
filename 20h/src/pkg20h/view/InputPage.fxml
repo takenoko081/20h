@@ -21,7 +21,6 @@
             <Label contentDisplay="CENTER" text="分" textOverrun="WORD_ELLIPSIS" />
             <TextField fx:id="minute" />
             <Label text="項目" />
-            <TextField fx:id="category" />
             <ChoiceBox fx:id="categoryChoiceBox" prefWidth="150.0" />
          </children>
       </VBox>
